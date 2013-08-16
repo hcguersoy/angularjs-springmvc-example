@@ -14,3 +14,5 @@ Folgende Features werden gezeigt:
 === Original ===
 
 Das Original findet sich unter https://github.com/nidi3/AngularJS-SpringMVC-example.git
+
+..
