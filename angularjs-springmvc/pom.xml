@@ -172,7 +172,7 @@
 								</goals>
 								<configuration>
 									<generateBackupPoms>false</generateBackupPoms>
-									<newVersion>${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}-${env.GIT_COMMIT}.${env.BUILD_NUMBER}</newVersion>
+									<newVersion>${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}-${env.BUILD_NUMBER}</newVersion>
 								</configuration>
 							</execution>
 						</executions>
@@ -190,9 +190,9 @@
 								<configuration>
 									<tasks>
 										<property name="newVersion"
-											value="${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}-${env.GIT_COMMIT}.${env.BUILD_NUMBER}" />
+											value="${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}-${env.BUILD_NUMBER}" />
 										<echo
-											message="Writing project Version into projectversion.properties: ${newVersion}" />
+											message="Writing project Version into ${project.basedir}/target/projectversion.properties: ${newVersion}" />
 										<echo file="${project.basedir}/target/projectversion.properties"
 											message="projectversion=${newVersion}" />
 									</tasks>
@@ -222,7 +222,7 @@
 								</goals>
 								<configuration>
 									<generateBackupPoms>false</generateBackupPoms>
-									<newVersion>${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}-${env.gitrev}.${env.bnr}</newVersion>
+									<newVersion>${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.incrementalVersion}-${env.bnr}</newVersion>
 								</configuration>
 							</execution>
 						</executions>
