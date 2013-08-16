@@ -10,3 +10,7 @@ Folgende Features werden gezeigt:
 - Clientseitige I18N
 - Security
 - Javascript ohne globale Variablen
+
+=== Original ===
+
+Das Original findet sich unter https://github.com/nidi3/AngularJS-SpringMVC-example.git
