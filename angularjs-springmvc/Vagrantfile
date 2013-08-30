@@ -20,8 +20,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
    # Don't boot with headless mode
    vb.gui = false
    vb.name = "example-1"
-   vb.customize ["modifyvm", :id, "--memory", "1024"]
-   vb.customize ["modifyvm", :id, "--cpus", 1]
+   vb.customize ["modifyvm", :id, "--memory", "2048"]
+   vb.customize ["modifyvm", :id, "--cpus", 2]
   end
   
   config.vm.provision :hostmanager
