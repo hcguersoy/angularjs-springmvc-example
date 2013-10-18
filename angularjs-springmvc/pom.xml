@@ -123,9 +123,21 @@
 					<artifactId>maven-ear-plugin</artifactId>
 					<version>2.6</version>
 				</plugin>
-
 			</plugins>
 		</pluginManagement>
+
+		<plugins>
+			<plugin>
+				<groupId>org.apache.tomcat.maven</groupId>
+				<artifactId>tomcat7-maven-plugin</artifactId>
+				<version>2.1</version>
+				<configuration>
+					<port>9090</port>
+					<path>/</path>
+				</configuration>
+			</plugin>
+		</plugins>
+
 	</build>
 
 	<profiles>
