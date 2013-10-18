@@ -4,26 +4,20 @@
 VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
-
-  config.hostmanager.enabled = true
-  config.hostmanager.manage_host = false
-  config.hostmanager.ignore_private_ip = false
-  config.hostmanager.include_offline = true
   
+  #prepared vm with open-jdk7 and TC7
   config.vm.box = "prcs32-jdk7-tc7"
-  config.vm.network :private_network, ip: '192.168.58.15'
-  config.vm.network :forwarded_port, guest: 8844, host: 2201
+  config.vm.network :private_network, ip: '192.168.56.15'
+  config.vm.network :forwarded_port, guest: 8844, host: 8844
   config.vm.hostname = "example-1"
 
   config.vm.provider :virtualbox do |vb|
-   # Don't boot with headless mode
+   # Don't boot with gui
    vb.gui = false
    vb.name = "example-1"
    vb.customize ["modifyvm", :id, "--memory", "2048"]
    vb.customize ["modifyvm", :id, "--cpus", 2]
   end
-  
-  config.vm.provision :hostmanager
 
   config.vm.provision :puppet do |puppet|
     puppet.manifests_path = "manifests"
