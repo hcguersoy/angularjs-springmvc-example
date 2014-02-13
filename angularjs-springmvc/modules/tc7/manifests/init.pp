@@ -52,6 +52,14 @@ class tc7 (
      require => Package['tomcat7'],
      notify => Service['tomcat7'],
      content => template('tc7/tomcat-users.xml.erb'),
+  }
+
+  file { '/var/lib/tomcat7/webapps/angularjs-springmvc.war':
+     owner => 'tomcat7',
+     require => [Package['tomcat7'], File['/etc/tomcat7/server.xml'], File['/etc/tomcat7/tomcat-users.xml']],
+     before => Service['tomcat7'],
+     notify => Service['tomcat7'],
+     source => '/tmp/target/angularjs-springmvc-1.1-SNAPSHOT.war'
   }  
 
   service { 'tomcat7':
