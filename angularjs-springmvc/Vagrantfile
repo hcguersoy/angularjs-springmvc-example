@@ -11,11 +11,13 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.network :forwarded_port, guest: 8844, host: 8844
   config.vm.hostname = "example-1"
 
+  config.vm.synced_folder "./target", "/tmp/target/"
+
   config.vm.provider :virtualbox do |vb|
    # Don't boot with gui
    vb.gui = false
    vb.name = "example-1"
-   vb.customize ["modifyvm", :id, "--memory", "2048"]
+   vb.customize ["modifyvm", :id, "--memory", "1024"]
    vb.customize ["modifyvm", :id, "--cpus", 2]
   end
 
@@ -24,6 +26,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     puppet.module_path = "modules"
     puppet.manifest_file  = "example-1.pp"
     puppet.options = "--verbose"
-  end #puppet  
+  end #puppet 
 
 end
