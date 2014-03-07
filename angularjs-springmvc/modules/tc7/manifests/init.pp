@@ -1,6 +1,7 @@
 class tc7 (
     $http_port = 8844,
     $https_port = 18443,
+    $mvntarget = '/work/target',
 ) {
 
   Package { # defaults
@@ -59,7 +60,7 @@ class tc7 (
      require => [Package['tomcat7'], File['/etc/tomcat7/server.xml'], File['/etc/tomcat7/tomcat-users.xml']],
      before => Service['tomcat7'],
      notify => Service['tomcat7'],
-     source => '/tmp/target/angularjs-springmvc-1.1-SNAPSHOT.war'
+     source => "$mvntarget/angularjs-springmvc.war",
   }  
 
   service { 'tomcat7':
