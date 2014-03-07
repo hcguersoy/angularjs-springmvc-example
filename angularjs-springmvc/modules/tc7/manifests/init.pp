@@ -11,11 +11,8 @@ class tc7 (
   package { 'tomcat7':
       require => [
         Package['openjdk-7-jdk'],
-        # Package['openjdk-7-jre'],
         Package['openjdk-7-jre-headless'],
         Package['openjdk-7-jre-lib'],
-        #Package['authbind'],
-        #Package['libtcnative-1'],
       ],
   }
 
@@ -26,20 +23,11 @@ class tc7 (
   package { 'openjdk-7-jdk':
   }
 
-  # package { 'openjdk-7-jre':
-  # }
-
   package { 'openjdk-7-jre-headless':
   }
 
   package { 'openjdk-7-jre-lib':
   }
-
-  # package { 'authbind':
-  # }
-
-  # package { 'libtcnative-1':
-  # }
 
   file { '/etc/tomcat7/server.xml':
      owner => 'root',
@@ -63,8 +51,11 @@ class tc7 (
      source => "$mvntarget/angularjs-springmvc.war",
   }  
 
+  #using docker, we wan't start it with the puppet run
+  #as we start the service via CMD from the Dockerfile 
+  #while starting a container
   service { 'tomcat7':
-    ensure => running,
+    ensure => false,
     enable => true,
     require => Package['tomcat7'],
   }   
