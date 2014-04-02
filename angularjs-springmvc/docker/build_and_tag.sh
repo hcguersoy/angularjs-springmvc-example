@@ -16,5 +16,7 @@ if [ ! -f docker-built-id ]; then
 fi
 DOCKER_BUILD_ID=`cat docker-built-id`
 
-# Publish built docker image to repo
+# Tag the new image
 docker tag $DOCKER_BUILD_ID $DOCKER_IMAGE_NAME
+
+# todo: stuff to publish this image in a (remote) repository
