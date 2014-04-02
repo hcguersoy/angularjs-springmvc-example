@@ -21,3 +21,7 @@ In dem Projekt befindet sich ein Vagrantfile um eine VM mit Hilfe von Vagrant zu
 
 Zudem findet sich ein Dockerfile um ein Docker Image zu erstellen, die ebenfalls ein Tomcat mit der Beispielapplikation ernthält. Die Provisionierung des Images erfolgt dabei mit Hilfe des gleichen Puppet-Manifestes.
 Kleiner Hinweis: als Basis-Image ist aktuell eins angebeben was sich nicht in dem docker.io-Index findet. Ihr könnt hier ein beliebiges Image nehmen in dem Puppet installiert ist.
+
+# TODO 
+
+Make this all available in english.
